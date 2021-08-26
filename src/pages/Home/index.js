@@ -1,10 +1,8 @@
-import React, {useState, useMemo, useEffect} from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 import './styles.css';
-import {HiOutlineDocumentText} from 'react-icons/hi';
-import {FiHelpCircle} from 'react-icons/fi';
-import {FcAbout} from 'react-icons/fc';
+import {SiReact} from 'react-icons/si';
 
 function Menu() {
   /*
@@ -18,28 +16,20 @@ function Menu() {
 
   return (
     <section>
-      <img class="mosque"></img>
-      <div class="content">
-        <div class="textBox">
+      <SiReact size={500} className="imageHome"/>
+      <div className="content">
+        <div className="textBox">
           <h2>Relize seu agendamento de forma rápida e eficiente!</h2>
           <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-          when an unknown printer took a galley of type and scrambled it to make a type 
-          specimen book. 
+            Nossa plataforma foi criada para te atender de forma
+            mais organizada e eficiente, você pode cadastrar um veículo e realizar
+            um agendamento em nossa oficina de acordo com o melhor horário disponível para você.
           </p>
           <Link to="/realizarAgendamento" className="btn">
             <span className="btn-span">Realizar um agendamento</span>
           </Link>
         </div>
       </div>
-
-      <ul class="sci">
-        <li><Link to="/home"><HiOutlineDocumentText size={30} color="white"/></Link></li>
-        <li><Link to="/home"><FiHelpCircle size={30} color="white"/></Link></li>
-        <li><Link to="/home"><FcAbout size={30} color="white"/></Link></li>
-      </ul>
-
     </section>
   );
 }

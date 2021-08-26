@@ -30,3 +30,19 @@ export function signOut(){
     type: '@auth/SIGN_OUT',
   }
 }
+
+//Empresa
+
+export function signInEmpresa(email,password){
+  return {
+    type: '@auth/SIGN_IN_EMPRESA',
+    payload: {email, password},
+  };
+}
+
+export function signInEmpresaSuccess(token, empresa){
+  return {
+    type: '@auth/SIGN_IN_EMPRESA_SUCCESS',
+    payload: {token,empresa},
+  };
+}

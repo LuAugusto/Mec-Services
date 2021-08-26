@@ -14,7 +14,7 @@ const schema = Yup.object().shape({
   email:Yup.string().required().email(),
   name:Yup.string().required(),
   telefone:Yup.string().required(),
-  oldpassword:Yup.string().required(),
+  oldpassword:Yup.string().required('Informe sua senha'),
   password:Yup.string(),
   confirmPassword:Yup.string().when('password',(password,field) => 
     password ? field.required().oneOf([Yup.ref('password')]) : field

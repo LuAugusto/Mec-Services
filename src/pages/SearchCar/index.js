@@ -4,9 +4,7 @@ import { Container } from './styles';
 import {useSelector} from 'react-redux';
 import {toast} from 'react-toastify';
 import {Link} from 'react-router-dom';
-import {AiFillCar} from 'react-icons/ai';
 import {TiPencil} from 'react-icons/ti';
-import {FaTrashAlt} from 'react-icons/fa';
 import axios from 'axios';
 
 function SearchCar(){
@@ -29,7 +27,6 @@ function SearchCar(){
     searchCarsUsers();
   }, [])
 
-  //const ref = `/editar`
   return (
       <Container>
         <h1>Meus veículos</h1>

@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import axios from 'axios';
 
 import { useSelector } from 'react-redux';
-
+import {isBefore} from 'date-fns';
 import {toast} from 'react-toastify';
 
 import {GiCancel} from 'react-icons/gi';
@@ -25,7 +25,6 @@ function SearchAgendamento() {
       try{
         const responses = await axios.get('http://localhost:3000/pesquisarAgendamento', 
         { headers: {"Authorization" : `Bearer ${token}`} });
-        console.log(responses)
         setAgendamentos(responses.data);
         toast.success('Aqui você pode conferir seus agendamentos efetuados')
       }catch(error){

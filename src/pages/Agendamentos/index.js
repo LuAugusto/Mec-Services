@@ -1,30 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
 import { Container } from './styles'
-import {Form,Input, Select} from '@rocketseat/unform';
+import {Form} from '@rocketseat/unform';
 import {useSelector,useDispatch} from 'react-redux';
-
-import * as Yup from 'yup';
-
 import {toast} from 'react-toastify';
 import axios from 'axios';
 
-const schema = Yup.object().shape({
-  email:Yup.string().required().email(),
-  name:Yup.string().required(),
-  telefone:Yup.string().required(),
-  oldpassword:Yup.string().required(),
-  password:Yup.string(),
-  confirmPassword:Yup.string().when('password',(password,field) => 
-    password ? field.required().oneOf([Yup.ref('password')]) : field
-  ),
-});
+import {createAppointmentRequest} from '../../store/modules/agendamento/actions';
 
 function Agendamentos() {
   const dispatch = useDispatch();
 
   const [cars, setCars] = useState([]);
   const [services, setServices] = useState([]);
+  const [dispo, setDispo] = useState([]);
 
   const profile = useSelector(state => state.user.profile);
   const token = useSelector(state => state.auth.token);
@@ -51,20 +40,47 @@ function Agendamentos() {
       }
     }
     searchServices();
+
+    async function searchDisponibilidades(){
+      try{
+        const responses = await axios.get('http://localhost:3000/disponibilidades', 
+        { headers: {"Authorization" : `Bearer ${token}`} });
+        console.log(responses.data)
+        let disponibilidadePast = responses.data.filter(item => item.past === false)
+        console.log(disponibilidadePast)
+        setDispo(disponibilidadePast);
+      }catch(error){
+        toast.error('Falha no sistema')
+      }
+    }
+    searchDisponibilidades();
   },[])
 
-  function handleSubmit(data){
-    alert('oi')
-    console.log(data)
-    //dispatch(({veiculo,disponibilidade,servico}));
+  function handleSubmit(){
+    let car = document.getElementById("car").value
+    let service = document.getElementById("service").value
+    let disponivel = document.getElementById("disponibilidade").value
+    
+    let carId = cars.filter(item => item.placa == car)
+    let serviceID = services.filter(item => item.tipo_servico == service)
+    let disponibilidadeId = dispo.filter(item => item.display_date == disponivel )
+
+    let user = profile.id
+    let servico = serviceID[0].id
+    let disponibilidade = disponibilidadeId[0].id
+    let veiculo = carId[0].id
+    let empresa = 1
+    let status_agendamento = false
+    
+    dispatch(createAppointmentRequest({user,veiculo,disponibilidade,servico,empresa,status_agendamento}));
   }
 
   return (
    <Container>
      <h1>Realizar um agendamento:</h1>
-     <Form schema={schema} onSubmit={handleSubmit}>
+     <Form  onSubmit={handleSubmit}>
        <label>Selecione o veículo</label>
-       <select name="veiculo">
+       <select id="car" name="veiculo">
          {
            cars.map(car => {
              return(
@@ -74,20 +90,28 @@ function Agendamentos() {
          }
        </select>
 
-       <label>Selecione o dia e horário para o atendimento</label>
-       <Input name="disponibilidade" type="email" placeholder="Seu E-mail"/>
-       
-       <label>Selecione o serviço</label>
-       <select name="servico">
+       <label>Selecione a disponibilidade de atendimento</label>
+       <select id="disponibilidade" name="disponibilidade">
          {
-           services.map(service => {
+           dispo.map(disp => {
              return(
-              <option key={service.id}>{service.tipo_servico} | {service.tempo_estimado}</option>
+              <option key={disp.id}>{disp.display_date}</option>
              )
            })
          }
        </select>
-      <button type="submit">Atualizar perfil</button>
+       
+       <label>Selecione o serviço</label>
+       <select id="service" name="servico">
+         {
+           services.map(service => {
+             return(
+              <option key={service.id}>{service.tipo_servico}</option>
+             )
+           })
+         }
+       </select>
+      <button type="submit">Cadastrar Agendamento</button>
      </Form>
    </Container>
   );

@@ -5,7 +5,7 @@ export default reducers => {
   const persistedReducer = persistReducer({
     key: 'mecservicos',
     storage,
-    whitelist:['auth','user','car'],
+    whitelist:['auth','user','car','agendamento'],
   }, 
   reducers
   );

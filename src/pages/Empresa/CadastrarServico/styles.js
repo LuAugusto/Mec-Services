@@ -5,12 +5,40 @@ export const Container = styled.div`
   max-width:600px;
   margin: 50px auto;
 
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background: rgba(0,0,0,0.6);
+    width:100%;
+    color:#fff;
+  }
+  .thead{
+    
+      background-color: #0169b2;
+      color: white;
+
+  }
+  .edit a{
+    text-decoration:none;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .pen{
+    background:none;
+  }
+  .servicosCadastrados{
+    margin-top:30px;
+  }
+  
   form{
     display:flex;
     flex-direction:column;
     margin-top:30px;
 
-    select{
+    input{
       background: rgba(0,0,0,0.6);
       border:0;
       border-radius:4px;
@@ -23,11 +51,17 @@ export const Container = styled.div`
         color:rgba(255,255,255,0.7);
       }
     }
-    label{
-      color:black;
+    span{
+      color:#F64c75;
       align-self:flex-start;
       margin: 0 0 10px;
       font-weight: bold;
+    }
+    hr{
+      border:0;
+      height:1px;
+      background:rgba(255,255,255,0.2);
+      margin:10px 0 20px;
     }
     button{
       margin: 5px 0 0;
@@ -54,5 +88,21 @@ export const Container = styled.div`
       &:hover{
         opacity:1;
       }
+    }
+`;
+export const But = styled.button`
+    width:100%;
+    margin: 10px 0 0;
+    height:44px;
+    background:#f64c75;
+    font-weight:bold;
+    color:#fff;
+    border:0;
+    border-radius:4px;
+    font-size:16px;
+    transition: background 0.2s;
+
+    &:hover{
+      background: ${darken(0.08, '#f64c75')};
     }
 `;

@@ -28,7 +28,7 @@ section{
   font-weight: 700;
 }
 .content .textBox p{
-  font-size: 1.2em;
+  font-size: 1.6em;
   color:#333;
 }
 .content .textBox a{
@@ -46,43 +46,10 @@ section{
 .content .textBox a:hover{
   background: linear-gradient(90deg,#ff5e8e,#F08080);
 }
-.sci{
+.imageHome{
   position: absolute;
-  bottom:40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sci li{
-  list-style: none;
-}
-.sci li a{
-  position: relative;
-  display: inline-block;
-  margin-right: 15px;
-  width: 50px;
-  height: 50px;
-  background: #0169b2;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2 ease-in-out;
-}
-.sci li a img{
-  filter:invert(1);
-  transition: scale(0.5);
-}
-.sci li a:hover{
-  background: #ff5e8e;
-  transform:translateY(-10px);
-}
-.mosque{
-  position: absolute;
-  bottom: 0;
+  color:#ff5e8e;
   right: 0;
-  max-width: 700px;
 }
 
 /*Responsive*/
