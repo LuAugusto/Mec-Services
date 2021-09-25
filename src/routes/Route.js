@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import {Route,Redirect} from 'react-router-dom';
 
 import AuthLayout from '../pages/layouts/auth';
-import DefaultLayout from '../pages/layouts/default';
-import Empresa from '../pages/layouts/Empresa';
+
 import Home from '../pages/Home';
 
 import {store} from '../store';
@@ -28,9 +27,8 @@ export default function RouteWrapper({
     return <Redirect to="/home"/>
   }
 
-  const user = signed ? DefaultLayout : AuthLayout;
+  const Layout = signed ? Home : AuthLayout;
   
-  const Layout = signed && empresa ? Empresa : user;
 
   return (
     <Route {...rest} render={props => (

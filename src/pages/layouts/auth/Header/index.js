@@ -8,7 +8,7 @@ function Header() {
 
   return(
       <header>
-        <Link class="logo" to="/home">MEC Serviços<GiGears/></Link>
+        <Link class="logo" to="/">MEC Serviços<GiGears/></Link>
         <div class="toggle"></div>
         <ul class="navigation">
           <li>

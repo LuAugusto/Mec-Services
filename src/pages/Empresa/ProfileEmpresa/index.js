@@ -12,10 +12,10 @@ const schema = Yup.object().shape({
   cnpj: Yup.string().required(),
   telefone:Yup.string().required(),
   endereco:Yup.string().required(),
-  oldpassword:Yup.string().required(),
+  oldpassword:Yup.string().required('Favor inserir senha'),
   password:Yup.string(),
   confirmPassword:Yup.string().when('password',(password,field) => 
-    password ? field.required().oneOf([Yup.ref('password')]) : field
+    password ? field.required('Favor inserir nova senha').oneOf([Yup.ref('password')]) : field
   ),
 });
 

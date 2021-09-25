@@ -2,43 +2,40 @@ import styled from "styled-components";
 import {darken} from 'polished';
 
 export const Container = styled.div`
-  max-width:900px;
-  margin: 50px auto;
 
-    th, td {
-      padding: 15px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-      background: rgba(0,0,0,0.1);
-    }
-    .thead{
-      
-        background-color: #0169b2;
-        color: white;
-  
-    }
-    button{
-      margin: 5px 0 0;
-      height:44px;
-      font-weight:bold;
-      background:none;
-      color:#black;
+.table{
+  width: 100%;
+  border-collapse: collapse;
+
+}
+  .selectClass{
+      background: rgba(0,0,0,0.6);
       border:0;
       border-radius:4px;
-      font-size:16px;
-      cursor:pointer;
-    }
-    a{
-      color: #fff;
-      margin-top:15px;
-      font-size:16px;
-      opacity:0.8;
-      text-decoration:none;
+      height:20px;
+      color:#fff;
+  }
+  .thead{
+    background: #efefef;
+    text-align: left;
+  }
 
-      &:hover{
-        opacity:1;
-      }
-    }
+  .table-responsive{
+    overflow-x: auto;
+  }
+
+  th,td{
+    font-size: .9rem;
+    padding:  1rem 1rem;
+    color: var(--color-dark);
+  }
+
+  td{
+    font-size: .8rem;
+  }
+  tbody tr:nth-child(even){
+    background: #f9fafc;
+  }
 `;
 
 export const Modal = styled.div`

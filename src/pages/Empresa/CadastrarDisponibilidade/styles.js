@@ -7,7 +7,12 @@ export const Container = styled.div`
   display:flex;
   flex-direction:row;
   align-items:center;
+  padding-top:70px;
   
+  .hourTextTwo{
+    padding-left:20px;
+    font-size:22px;
+  }
   .hourText{
     font-size:22px;
   }
@@ -17,16 +22,32 @@ export const Container = styled.div`
     padding-right:10px;
   }
 
+  .leftForm{
+    padding-left:10px;
+    display:flex;
+    flex-direction:column;
+  } 
+  .listDate{
+    margin-left:20px;
+    padding:10px;
+    width:210px;
+    background: rgba(0,0,0,0.6);
+    border:0;
+    border-radius:4px;
+    height:35px;
+    color:#fff;
+  }
+
   form{
     display:flex;
     flex-direction:column;
-    margin-top:30px;
+    margin-top:20px;
     padding:20px;
     input{
       background: rgba(0,0,0,0.6);
       border:0;
       border-radius:4px;
-      height:44px;
+      height:35px;
       padding:0 15px;
       color:#fff;
       margin:0 0 10px;
@@ -49,7 +70,7 @@ export const Container = styled.div`
     }
     button{
       margin: 5px 0 0;
-      height:44px;
+      height:35px;
       background:#0169b2;
       font-weight:bold;
       color:#fff;
