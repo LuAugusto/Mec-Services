@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import RelatorioCancelados from '../../../Empresa/RelatorioCancelados/index';
+import RelatorioDia from '../../../Empresa/RelatorioDia/index';
 const Background = styled.div`
   width: 100%;
   z-index: 100;
@@ -56,31 +56,31 @@ const CloseModalButton = styled(MdClose)`
   z-index: 100;
 `;
 
-export const ModalRelatorioCanceled = ({ showModalCanceled, setShowModalCanceled }) => {
+export const ModalRelatorioDay = ({ showModalDay, setShowModalDay }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
     config: {
       duration: 250
     },
-    opacity: showModalCanceled ? 1 : 0,
-    transform: showModalCanceled ? `translateY(0%)` : `translateY(-100%)`
+    opacity: showModalDay ? 1 : 0,
+    transform: showModalDay ? `translateY(0%)` : `translateY(-100%)`
   });
 
   const closeModal = e => {
     if (modalRef.current === e.target) {
-      setShowModalCanceled(false);
+      setShowModalDay(false);
     }
   };
 
   const keyPress = useCallback(
     e => {
-      if (e.key === 'Escape' && showModalCanceled) {
-        setShowModalCanceled(false);
+      if (e.key === 'Escape' && showModalDay) {
+        setShowModalDay(false);
         console.log('I pressed');
       }
     },
-    [setShowModalCanceled, showModalCanceled]
+    [setShowModalDay, showModalDay]
   );
 
   useEffect(
@@ -93,14 +93,14 @@ export const ModalRelatorioCanceled = ({ showModalCanceled, setShowModalCanceled
 
   return (
     <>
-      {showModalCanceled ? (
+      {showModalDay ? (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper showModal={showModalCanceled}>
-              <RelatorioCancelados/>
+            <ModalWrapper showModal={showModalDay}>
+              <RelatorioDia/>
               <CloseModalButton
                 aria-label='Close modal'
-                onClick={() => setShowModalCanceled(prev => !prev)}
+                onClick={() => setShowModalDay(prev => !prev)}
               />
             </ModalWrapper>
           </animated.div>

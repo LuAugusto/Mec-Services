@@ -10,23 +10,23 @@ import './style.css';
 function RelatorioCancelados() {
 
   const token = useSelector((state) => state.auth.token);
-  const [cancelados, setCancelados] = useState([])
+  const [diarios, setDiarios] = useState([])
 
   useEffect(() => {
-    async function findCanceled() {
+    async function findDay() {
       try {
         const responses = await axios.get(
-          "http://localhost:3000/agendamentosCancelados",
+          "http://localhost:3000/agendamentosDoDia",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         console.log(responses.data)
-        setCancelados(responses.data);
-        toast.success("Aqui você pode conferir os agendamentos cancelados");
+        setDiarios(responses.data);
+        toast.success("Aqui você pode conferir os agendamentos efetuados no dia");
       } catch (error) {
         toast.error("Falha no sistema");
       }
     }
-    findCanceled();
+    findDay();
   }, []);
 
   return (
@@ -35,22 +35,16 @@ function RelatorioCancelados() {
           <thead> 
               <tr>
                 <th>Id Agend.</th>
-                <th>Status Agendamento</th>
-                <th>Data cancelamento</th>
-                <th>id usuário</th>
-                <th className="totalCancelados">Total:{cancelados.length}</th>
+                <th>Data e Hora</th>
+                <th className="totalDay">Total:{diarios.length}</th>
               </tr>
           </thead>
           <tbody>
-                  {cancelados.map((item) => {
+                  {diarios.map((item) => {
                     return (
                       <tr key={item.id}>
                         <td>{item.id}</td>
-                        <td>
-                          {item.status_agendamento === false ? 'Inativo/Cancelado' : ''}
-                        </td>
-                        <td>{item.format}</td>
-                        <td>{item.user}</td>
+                        <td>{item.display_date}</td>
                       </tr>
                     );
                   })}

@@ -3,11 +3,13 @@ import {Link} from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import { AiTwotoneLock } from "react-icons/ai";
 import { GiGears } from "react-icons/gi";
+import './header.css';
+import {HeaderCSS} from './styledHeader';
 
 function Header() {
 
   return(
-      <header>
+      <HeaderCSS className="headerCss">
         <Link class="logo" to="/">MEC Serviços<GiGears/></Link>
         <div class="toggle"></div>
         <ul class="navigation">
@@ -18,7 +20,7 @@ function Header() {
             </Link>
           </li>
         </ul>
-      </header>
+      </HeaderCSS>
   );
 }
 

@@ -5,6 +5,7 @@ import {Route,Redirect} from 'react-router-dom';
 import AuthLayout from '../pages/layouts/auth';
 
 import Home from '../pages/Home';
+import AreaCliente from '../pages/Cliente/AreaCliente';
 
 import {store} from '../store';
 
@@ -24,10 +25,12 @@ export default function RouteWrapper({
   }
 
   if(signed && !isPrivate){
-    return <Redirect to="/home"/>
+    return <Redirect to="/inicio"/>
   }
 
-  const Layout = signed ? Home : AuthLayout;
+  const checkUser = empresa ? Home : AreaCliente
+
+  const Layout = signed ? checkUser : AuthLayout;
   
 
   return (

@@ -4,25 +4,21 @@
   box-sizing:border-box;
   font-family: sans-serif;
 }
-header{
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 100px;
-  display:flex;
-  justify-content: space-between;
+.headerCss{
+  left: 240px;
+  top:0;
+  z-index: 100;
+  background: #fff;
+  height: 60px;
+  padding: 0rem 1rem;
+  display: flex;
   align-items: center;
-  z-index: 1000;
-  background:#ff5e8e;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  transition: left 500ms;
 }
-header .logo{
-  position: relative;
+.headerCss .logo{
   color:#0169b2;
-  display: inline-block;
-  font-size: 2em;
-  opacity: 0;
-  text-decoration: none;
-  font-weight: 800;
   animation: slide-left 0.5s linear forwards;
   animation-delay: 0.2;
 }

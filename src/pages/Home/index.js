@@ -13,6 +13,8 @@ import {signOut} from '../../store/modules/auth/actions';
 import {Modal} from '../Modals/EditarEmpresa/index';
 import {ModalDisp} from '../Modals/Disponibilidade/index';
 import {ModalRelatorioCanceled} from '../Modals/Relatorios/Cancelados';
+import {ModalRelatorioDay} from '../Modals/Relatorios/diarios';
+import {ModalRelatorioConcluidos} from '../Modals/Relatorios/Concluidos';
 
 import AgendamentosRecebidos from '../Empresa/AgendamentosRecebidos/index';
 
@@ -27,6 +29,8 @@ function Menu() {
   const [showModal, setShowModal] = useState(false);
   const [showModalDisp, setShowModalDisp] = useState(false);
   const [showModalCanceled, setShowModalCanceled] = useState(false);
+  const [showModalDay, setShowModalDay] = useState(false);
+  const [showModalConcluidos, setShowModalConcluidos] = useState(false);
 
   const openModal = () => {
     setShowModal(prev => !prev);
@@ -37,12 +41,20 @@ function Menu() {
   const openModalRelatorioCanceled = () => {
     setShowModalCanceled(prev => !prev);
   };
+  const openModalRelatorioDay = () => {
+    setShowModalDay(prev => !prev);
+  };
+  const openModalRelatorioConcluidos = () => {
+    setShowModalConcluidos(prev => !prev);
+  };
 
   return (
   <div>
       <Modal showModal={showModal} setShowModal={setShowModal} />
       <ModalDisp showModalDisp={showModalDisp} setShowModalDisp={setShowModalDisp} />
       <ModalRelatorioCanceled showModalCanceled={showModalCanceled} setShowModalCanceled={setShowModalCanceled} />
+      <ModalRelatorioDay showModalDay={showModalDay} setShowModalDay={setShowModalDay} />
+      <ModalRelatorioConcluidos showModalConcluidos={showModalConcluidos} setShowModalConcluidos={setShowModalConcluidos} />
       <input type="checkbox" name="" id="sidebar-toggle"/>
       <div className="sidebar">
         <div className="sidebar-header">
@@ -75,14 +87,6 @@ function Menu() {
                 </Link>
               </li>
               <li>
-                <Link>
-                  <span>
-                    <FaClipboardList/>
-                  </span>
-                  <span>Relatórios</span>
-                </Link>
-              </li>
-              <li>
                 <Link onClick={openModal}>
                   <span>
                     <FcDataProtection/>
@@ -105,7 +109,6 @@ function Menu() {
          <header>
            <div className="search-wrapper">
              <span className="ti-search"></span>
-             <input type="search" placeholder="atendimentoo@gmail"/>
            </div>
            <div className="social-icons"> 
               <span className="ti-bell"></span>
@@ -123,12 +126,12 @@ function Menu() {
                   <div className="card-body">
                     <span className="ti-briefcase"></span>
                     <div>
-                      <h5>Próximo Agendamento</h5>
-                      <h4>Mais próximos</h4>
+                      <h5>Agendamentos do dia</h5>
+                      <h4>Lista de agendamentos do dia</h4>
                     </div>
                   </div>
-                  <div className="card-footer">
-                    <a>Relatório completo</a>
+                  <div className="card-footer" onClick={openModalRelatorioDay}>
+                    <a>Lista completa</a>
                   </div>
                 </div>
 
@@ -136,12 +139,12 @@ function Menu() {
                   <div className="card-body">
                     <span className="ti-briefcase"></span>
                     <div>
-                      <h5>Agendamentos semanal</h5>
-                      <h4>20</h4>
+                      <h5>Todos Agendamentos concluídos</h5>
+                      <h4>Lista de agendamentos concluídos</h4>
                     </div>
                   </div>
                   <div className="card-footer">
-                    <a>Relatório completo</a>
+                    <a onClick={openModalRelatorioConcluidos}>Lista completa</a>
                   </div>
                 </div>
 
@@ -150,11 +153,11 @@ function Menu() {
                     <span className="ti-check-box"></span>
                     <div>
                       <h5>Agendamentos cancelados</h5>
-                      <h4>Lista de agendamentos cancelados</h4>
+                      <h4>Últimos agendamentos cancelados</h4>
                     </div>
                   </div>
                   <div className="card-footer">
-                    <a onClick={openModalRelatorioCanceled}>Visualizar Relatório</a>
+                    <a onClick={openModalRelatorioCanceled}>Lista completa</a>
                   </div>
                 </div>
             </div>

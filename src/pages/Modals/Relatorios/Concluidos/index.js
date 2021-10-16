@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import RelatorioCancelados from '../../../Empresa/RelatorioCancelados/index';
+import RelatorioConcluidos from '../../../Empresa/RelatorioConcluidos/index';
 const Background = styled.div`
   width: 100%;
   z-index: 100;
@@ -56,31 +56,31 @@ const CloseModalButton = styled(MdClose)`
   z-index: 100;
 `;
 
-export const ModalRelatorioCanceled = ({ showModalCanceled, setShowModalCanceled }) => {
+export const ModalRelatorioConcluidos = ({ showModalConcluidos, setShowModalConcluidos }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
     config: {
       duration: 250
     },
-    opacity: showModalCanceled ? 1 : 0,
-    transform: showModalCanceled ? `translateY(0%)` : `translateY(-100%)`
+    opacity: showModalConcluidos ? 1 : 0,
+    transform: showModalConcluidos ? `translateY(0%)` : `translateY(-100%)`
   });
 
   const closeModal = e => {
     if (modalRef.current === e.target) {
-      setShowModalCanceled(false);
+      setShowModalConcluidos(false);
     }
   };
 
   const keyPress = useCallback(
     e => {
-      if (e.key === 'Escape' && showModalCanceled) {
-        setShowModalCanceled(false);
+      if (e.key === 'Escape' && showModalConcluidos) {
+        setShowModalConcluidos(false);
         console.log('I pressed');
       }
     },
-    [setShowModalCanceled, showModalCanceled]
+    [setShowModalConcluidos, showModalConcluidos]
   );
 
   useEffect(
@@ -93,14 +93,14 @@ export const ModalRelatorioCanceled = ({ showModalCanceled, setShowModalCanceled
 
   return (
     <>
-      {showModalCanceled ? (
+      {showModalConcluidos ? (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper showModal={showModalCanceled}>
-              <RelatorioCancelados/>
+            <ModalWrapper showModal={showModalConcluidos}>
+              <RelatorioConcluidos/>
               <CloseModalButton
                 aria-label='Close modal'
-                onClick={() => setShowModalCanceled(prev => !prev)}
+                onClick={() => setShowModalConcluidos(prev => !prev)}
               />
             </ModalWrapper>
           </animated.div>
