@@ -26,9 +26,10 @@ export function* createCar({payload}){
 }
 export function* updateCar({payload}){
   try{
-    const {placa,marca,modelo,ano,motor} = payload.data.data;
+    console.log(payload)
+    const {placa,marca,modelo,ano,motor} = payload;
 
-    const response = yield call(api.put, `atualizarVeiculo/${payload.data.id}`,
+    const response = yield call(api.put, `atualizarVeiculo/${payload.id}`,
     {placa,marca,modelo,ano,motor}
     )
     

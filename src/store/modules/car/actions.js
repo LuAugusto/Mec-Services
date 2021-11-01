@@ -18,10 +18,11 @@ export function createCarFailure(){
 
 //Update Car 
 
-export function updateCarRequest(data){
+export function updateCarRequest(placa,marca,modelo,ano,motor,user,id){
+  console.log(id)
   return {
     type: '@car/UPDATE_CAR_REQUEST',
-    payload: {data},
+    payload: {placa,marca,modelo,ano,motor,user,id},
   };
 }
 export function updateCarSuccess(car){
