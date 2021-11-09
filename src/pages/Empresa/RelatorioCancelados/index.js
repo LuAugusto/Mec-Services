@@ -19,7 +19,6 @@ function RelatorioCancelados() {
           "http://localhost:3000/agendamentosCancelados",
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        console.log(responses.data)
         setCancelados(responses.data);
         toast.success("Aqui você pode conferir os agendamentos cancelados");
       } catch (error) {

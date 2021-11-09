@@ -47,7 +47,6 @@ function CadastrarDisponibilidade() {
     let yearValue = date.getFullYear();
     
     const fullFormat = `${yearValue}-${monthValue <= 9 ? `0${monthValue}` : monthValue}-${dateValue <= 9 ? `0${dateValue}` : dateValue}T${hour <= 9 ? `0${hour}` : hour}:00`;
-    console.log(fullFormat)
     return fullFormat
   }
   function handleSubmit(data){

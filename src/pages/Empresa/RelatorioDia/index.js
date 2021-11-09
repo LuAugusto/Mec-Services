@@ -19,7 +19,6 @@ function RelatorioCancelados() {
           "http://localhost:3000/agendamentosDoDia",
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        console.log(responses.data)
         setDiarios(responses.data);
         toast.success("Aqui você pode conferir os agendamentos efetuados no dia");
       } catch (error) {

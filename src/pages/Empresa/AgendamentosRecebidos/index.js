@@ -49,7 +49,6 @@ function AgendamentosRecebidos() {
       
         toast.success("Aqui você pode conferir seus agendamentos efetuados");
       } catch (error) {
-        console.log(error)
         toast.error("Falha no sistema");
       }
     }

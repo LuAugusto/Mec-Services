@@ -20,7 +20,6 @@ function RelatorioConcluidos() {
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setConcluidos(responses.data);
-        console.log(responses.data)
         toast.success("Aqui você pode conferir os agendamentos concluídos!");
       } catch (error) {
         toast.error("Falha no sistema");

@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-
+import RealizarAgendamento from '../../Cliente/RealizarAgendamento';
 const Background = styled.div`
   width: 100%;
   z-index: 100;
@@ -19,6 +19,7 @@ const ModalWrapper = styled.div`
   z-index: 100;
   height: 560px;
   display:flex;
+  padding:20px;
   flex-direction: row;
   margin-left:200px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
@@ -99,8 +100,7 @@ export const ModalAgendamento = ({ showModalAgendamento, setShowModalAgendamento
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper showModal={showModalAgendamento}>
-        
-            
+            <RealizarAgendamento/>
               <CloseModalButton
                 aria-label='Close modal'
                 onClick={() => setShowModalAgendamento(prev => !prev)}

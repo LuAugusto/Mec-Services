@@ -40,7 +40,6 @@ function ProfileEmpresa() {
 
   function handleSubmit(dados){
 
-    console.log(dados)
     const {name,email,telefone,endereco,cnpj,oldpassword, ...rest} = dados;
 
     const data = Object.assign(

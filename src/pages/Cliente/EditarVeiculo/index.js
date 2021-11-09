@@ -28,7 +28,7 @@ function EditarVeiculo(){
     const idcar = car.filter((car) => car.placa === placa);
 
     const id = idcar[0].id
-    console.log(id)
+    
     dispatch(updateCarRequest(placa,marca,modelo,ano,motor,user,id));
   }
 
@@ -42,7 +42,6 @@ function EditarVeiculo(){
         setCar(responses.data);
         toast.success("Aqui você pode conferir seus veículos");
       } catch (error) {
-        console.log(error)
         toast.error("Falha no sistema");
       }
     }
@@ -56,7 +55,7 @@ function EditarVeiculo(){
       <select>
         {car.map((car) => {
           return(
-            <option>{car.placa}</option>
+            <option key={car.id}>{car.placa}</option>
           )
         })}
       </select>

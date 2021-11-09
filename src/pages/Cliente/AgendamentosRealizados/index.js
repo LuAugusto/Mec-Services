@@ -29,7 +29,6 @@ function AgendamentosRealizados() {
         setAgendamentos(responses.data);
         toast.success("Aqui você pode conferir seus agendamentos efetuados");
       } catch (error) {
-        console.log(error)
         toast.error("Falha no sistema");
       }
     }
@@ -43,9 +42,9 @@ function AgendamentosRealizados() {
           `http://localhost:3000/cancelarAgendamento/${id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        toast.success("Aqui você pode conferir seus agendamentos efetuados");
+        toast.success("Agendamento cancelado com sucesso!");
+        window.location.reload();
       } catch (error) {
-        console.log(error.message)
         toast.error("Agendamento não pode ser cancelado!");
       }
     }
