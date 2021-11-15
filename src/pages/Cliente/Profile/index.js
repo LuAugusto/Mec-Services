@@ -4,9 +4,9 @@ import {useSelector,useDispatch} from 'react-redux';
 
 import * as Yup from 'yup';
 
-import {signOut} from '../../store/modules/auth/actions';
+import {signOut} from '../../../store/modules/auth/actions';
 
-import {updateProfileRequest} from '../../store/modules/user/actions';
+import {updateProfileRequest} from '../../../store/modules/user/actions';
 
 import { Container,But } from './styles';
 

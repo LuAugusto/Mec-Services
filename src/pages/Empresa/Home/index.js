@@ -9,14 +9,14 @@ import {FcDataProtection} from 'react-icons/fc';
 import {FaClipboardList} from 'react-icons/fa';
 import {HiOutlineViewList} from 'react-icons/hi';
 import {BiTime} from 'react-icons/bi';
-import {signOut} from '../../store/modules/auth/actions';
-import {Modal} from '../Modals/EditarEmpresa/index';
-import {ModalDisp} from '../Modals/Disponibilidade/index';
-import {ModalRelatorioCanceled} from '../Modals/Relatorios/Cancelados';
-import {ModalRelatorioDay} from '../Modals/Relatorios/diarios';
-import {ModalRelatorioConcluidos} from '../Modals/Relatorios/Concluidos';
+import {signOut} from '../../../store/modules/auth/actions';
+import {Modal} from '../../Modals/EditarEmpresa/index';
+import {ModalDisp} from '../../Modals/Disponibilidade/index';
+import {ModalRelatorioCanceled} from '../../Modals/Relatorios/Cancelados';
+import {ModalRelatorioDay} from '../../Modals/Relatorios/diarios';
+import {ModalRelatorioConcluidos} from '../../Modals/Relatorios/Concluidos';
 
-import AgendamentosRecebidos from '../Empresa/AgendamentosRecebidos/index';
+import AgendamentosRecebidos from '../AgendamentosRecebidos/index';
 
 function Menu() {
 

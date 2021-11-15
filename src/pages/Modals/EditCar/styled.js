@@ -2,12 +2,11 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import CadastrarVeiculo from '../../Cliente/CadastrarVeiculo';
+
 const Background = styled.div`
   width: 100%;
-  z-index: 1000;
   height: 100%;
-  padding-bottom:80px;
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -15,21 +14,27 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  padding-top:20px;
   width: 800px;
-  z-index: 100;
-  height: 700px;
+  height: 500px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   position: relative;
   z-index: 10;
   border-radius: 10px;
 `;
 
+const ModalImg = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: #000;
+`;
+
 const ModalContent = styled.div`
   display: flex;
-  z-index: 100;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -54,34 +59,34 @@ const CloseModalButton = styled(MdClose)`
   width: 32px;
   height: 32px;
   padding: 0;
-  z-index: 100;
+  z-index: 10;
 `;
 
-export const ModalCar = ({ showModalCar, setShowModalCar }) => {
+export const Modal = ({ showModal, setShowModal }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
     config: {
       duration: 250
     },
-    opacity: showModalCar ? 1 : 0,
-    transform: showModalCar ? `translateY(0%)` : `translateY(-100%)`
+    opacity: showModal ? 1 : 0,
+    transform: showModal ? `translateY(0%)` : `translateY(-100%)`
   });
 
   const closeModal = e => {
     if (modalRef.current === e.target) {
-      setShowModalCar(false);
+      setShowModal(false);
     }
   };
 
   const keyPress = useCallback(
     e => {
-      if (e.key === 'Escape' && showModalCar) {
-        setShowModalCar(false);
+      if (e.key === 'Escape' && showModal) {
+        setShowModal(false);
         console.log('I pressed');
       }
     },
-    [setShowModalCar, showModalCar]
+    [setShowModal, showModal]
   );
 
   useEffect(
@@ -94,14 +99,19 @@ export const ModalCar = ({ showModalCar, setShowModalCar }) => {
 
   return (
     <>
-      {showModalCar ? (
+      {showModal ? (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper showModal={showModalCar}>
-            <CadastrarVeiculo/>
+            <ModalWrapper showModal={showModal}>
+              <ModalImg src={require('./modal.jpg')} alt='camera' />
+              <ModalContent>
+                <h1>Are you ready?</h1>
+                <p>Get exclusive access to our next launch.</p>
+                <button>Join Now</button>
+              </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'
-                onClick={() => setShowModalCar(prev => !prev)}
+                onClick={() => setShowModal(prev => !prev)}
               />
             </ModalWrapper>
           </animated.div>

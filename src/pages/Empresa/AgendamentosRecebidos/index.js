@@ -86,6 +86,7 @@ function AgendamentosRecebidos() {
                     <th>Endereço</th>
                     <th>Serviço contratado</th>
                     <th>Telefone cliente</th>
+                    <th>Nome cliente</th>
                     <th>Veículo cliente</th>
                     <th>Atualizar Status</th>
                     <th>Status atual</th>
@@ -99,6 +100,7 @@ function AgendamentosRecebidos() {
                         <td>{item.endereco}</td>
                         <td>{item.servico}</td>
                         <td>{item.telefone}</td>
+                        <td>{item.nome}</td>
                         <td>{item.veiculo}</td>
                         <td>
                           <select

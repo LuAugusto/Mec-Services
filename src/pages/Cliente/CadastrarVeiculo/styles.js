@@ -4,22 +4,22 @@ import {darken} from 'polished';
 export const Container = styled.div`
   max-width:600px;
   margin: 50px auto;
+
   
   form{
     display:flex;
     flex-direction:column;
-    margin-top:5px;
-    margin-bottom:10px;
+    margin-top:20px;
 
     input{
       background: rgba(0,0,0,0.6);
       border:0;
       border-radius:4px;
-      height:24px;
-      padding:0 15px;
+      height:35px;
+      padding:0 10px;
       color:#fff;
-      text-transform: uppercase;
-      
+      margin:0 0 10px;
+
       &::placeholder{
         color:rgba(255,255,255,0.7);
       }
@@ -27,6 +27,7 @@ export const Container = styled.div`
     span{
       color:#F64c75;
       align-self:flex-start;
+      margin: 0 0 10px;
       font-weight: bold;
     }
     hr{

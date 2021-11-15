@@ -4,9 +4,9 @@ import Route from './Route';
 
 import Login from '../pages/Login';
 import Register from '../pages/Register';
-import Profile from '../pages/Profile';
+import Profile from '../pages/Cliente/Profile';
 import Empresa from '../pages/Empresa/index';
-import Home from '../pages/Home';
+import Home from '../pages/Empresa/Home';
 import AreaCliente from '../pages/Cliente/AreaCliente';
 
 export default function Routes(){

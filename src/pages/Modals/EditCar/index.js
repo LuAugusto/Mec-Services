@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import CadastrarVeiculo from '../../Cliente/CadastrarVeiculo';
+import EditarVeiculo from '../../Cliente/EditarVeiculo';
 const Background = styled.div`
   width: 100%;
   z-index: 1000;
@@ -16,7 +16,7 @@ const Background = styled.div`
 
 const ModalWrapper = styled.div`
   padding-top:20px;
-  width: 800px;
+  width: 1200px;
   z-index: 100;
   height: 700px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
@@ -57,31 +57,31 @@ const CloseModalButton = styled(MdClose)`
   z-index: 100;
 `;
 
-export const ModalCar = ({ showModalCar, setShowModalCar }) => {
+export const ModalEditCar = ({ showModalEditCar, setShowModalEditCar }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
     config: {
       duration: 250
     },
-    opacity: showModalCar ? 1 : 0,
-    transform: showModalCar ? `translateY(0%)` : `translateY(-100%)`
+    opacity: showModalEditCar ? 1 : 0,
+    transform: showModalEditCar ? `translateY(0%)` : `translateY(-100%)`
   });
 
   const closeModal = e => {
     if (modalRef.current === e.target) {
-      setShowModalCar(false);
+      setShowModalEditCar(false);
     }
   };
 
   const keyPress = useCallback(
     e => {
-      if (e.key === 'Escape' && showModalCar) {
-        setShowModalCar(false);
+      if (e.key === 'Escape' && showModalEditCar) {
+        setShowModalEditCar(false);
         console.log('I pressed');
       }
     },
-    [setShowModalCar, showModalCar]
+    [setShowModalEditCar, showModalEditCar]
   );
 
   useEffect(
@@ -94,14 +94,14 @@ export const ModalCar = ({ showModalCar, setShowModalCar }) => {
 
   return (
     <>
-      {showModalCar ? (
+      {showModalEditCar ? (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper showModal={showModalCar}>
-            <CadastrarVeiculo/>
+            <ModalWrapper showModal={showModalEditCar}>
+            <EditarVeiculo/>
               <CloseModalButton
                 aria-label='Close modal'
-                onClick={() => setShowModalCar(prev => !prev)}
+                onClick={() => setShowModalEditCar(prev => !prev)}
               />
             </ModalWrapper>
           </animated.div>

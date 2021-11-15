@@ -6,15 +6,18 @@ import {useDispatch} from 'react-redux';
 import {FaCarAlt} from 'react-icons/fa';
 import {AiOutlineIdcard} from 'react-icons/ai';
 import {AiOutlineRollback} from 'react-icons/ai';
+import {AiFillEdit} from 'react-icons/ai';
 import AgendamentosRealizados from '../AgendamentosRealizados/index';
 import {Modal} from '../../Modals/EditarUsuario/index';
 import {ModalCar} from '../../Modals/Car/index';
 import {ModalAgendamento} from '../../Modals/Agendamento/index';
+import {ModalEditCar} from '../../Modals/EditCar/index';
 function AreaCliente() {
 
   const [showModal, setShowModal] = useState(false);
   const [showModalCar, setShowModalCar] = useState(false);
   const [showModalAgendamento, setShowModalAgendamento] = useState(false);
+  const [showModalEditCar, setShowModalEditCar] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -34,11 +37,16 @@ function AreaCliente() {
     setShowModalAgendamento(prev => !prev);
   };
 
+  const openModalEditCar = () => {
+    setShowModalEditCar(prev => !prev);
+  };
+
   return(
    <Container>
      <Modal showModal={showModal} setShowModal={setShowModal} />
      <ModalCar showModalCar={showModalCar} setShowModalCar={setShowModalCar} />
      <ModalAgendamento showModalAgendamento={showModalAgendamento} setShowModalAgendamento={setShowModalAgendamento} />
+     <ModalEditCar showModalEditCar={showModalEditCar} setShowModalEditCar={setShowModalEditCar} />
       <div>
         <input type="checkbox" name="" id="sidebar-toggle"/>
         <div className="sidebar">
@@ -72,12 +80,27 @@ function AreaCliente() {
                   </Link>
                 </li>
                 <li>
+                  <Link onClick={openModalEditCar}>
+                    <span>
+                      <AiFillEdit/>
+                    </span>
+                    <span>Editar Veículo</span>
+                  </Link>
+                </li>
+                <li>
                   <Link onClick={handleSignOut}>
                     <span>
                     <AiOutlineRollback/>
                     </span>
                     <span>Sair</span>
                   </Link>
+                </li>
+                <li>
+                    <span>
+                      <h3>Comunicação:</h3>
+                    </span>
+                    <span>atendimentoo@gmail.com</span><br/><br/>
+                    <span>(31)3212-3133</span><br/><br/>
                 </li>
               </ul>
           </div>

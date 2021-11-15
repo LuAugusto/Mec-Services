@@ -4,7 +4,7 @@ import {Route,Redirect} from 'react-router-dom';
 
 import AuthLayout from '../pages/layouts/auth';
 
-import Home from '../pages/Home';
+import Home from '../pages/Empresa/Home';
 import AreaCliente from '../pages/Cliente/AreaCliente';
 
 import {store} from '../store';

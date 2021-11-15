@@ -9425,6 +9425,11 @@ react-calendar@^3.4.0:
     merge-class-names "^1.1.1"
     prop-types "^15.6.0"
 
+react-custom-scrollbar@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-custom-scrollbar/-/react-custom-scrollbar-1.0.0.tgz#16466cac6ec9a493dd62891879e1a6ec1d958ded"
+  integrity sha1-FkZsrG7JpJPdYokYeeGm7B2Vje0=
+
 react-custom-scrollbars@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/react-custom-scrollbars/-/react-custom-scrollbars-4.2.1.tgz#830fd9502927e97e8a78c2086813899b2a8b66db"

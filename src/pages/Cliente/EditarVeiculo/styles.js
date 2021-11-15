@@ -6,8 +6,8 @@ export const Container = styled.div`
   margin: 50px auto;
   
   hr{
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top:10px;
+    margin-bottom:10px;
   }
 
   select{
@@ -54,7 +54,7 @@ export const Container = styled.div`
       margin:10px 0 20px;
     }
     button{
-      margin: 5px 0 0;
+      margin: 0 0 0;
       height:44px;
       background:#0169b2;
       font-weight:bold;

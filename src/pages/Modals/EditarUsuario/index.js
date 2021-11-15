@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import Profile from '../../Profile/index';
+import Profile from '../../Cliente/Profile/index';
 const Background = styled.div`
   width: 100%;
   z-index: 100;

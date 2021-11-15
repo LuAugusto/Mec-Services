@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import {Link} from 'react-router-dom';
 import { toast } from "react-toastify";
 import {Modal} from '../../Modals/EditarEmpresa/index';
+import {Scrollbars} from 'react-custom-scrollbars';
 import './style.css';
 
 function RelatorioCancelados() {
@@ -30,6 +31,7 @@ function RelatorioCancelados() {
 
   return (
     <div>
+      <Scrollbars style={{ width: 600, height: 500 }}>
       <table className="table-responsive">
           <thead> 
               <tr>
@@ -55,6 +57,7 @@ function RelatorioCancelados() {
                   })}
           </tbody>
       </table>
+      </Scrollbars>
     </div>
   );
 }

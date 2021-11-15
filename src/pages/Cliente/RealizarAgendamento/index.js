@@ -98,6 +98,7 @@ function RealizarAgendamento(){
        <select id="service" name="service">
          <option>Troca de Embreagem</option>
          <option>Troca de Pneu</option>
+         <option>Troca de Motor</option>
          <option>Pintura</option>
        </select>
       <hr/>
